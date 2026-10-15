@@ -89,14 +89,6 @@ Plans and prices: [gajo.io/pricing](https://gajo.io/pricing).
 - [llms.txt](https://gajo.io/llms.txt) for AI tools
 - [How Gajo compares](https://gajo.io/compare) with Bitly, Rebrandly, Dub, and Short.io
 
-## Running against another server
-
-All examples read `GAJO_API_URL` (default `https://gajo.io/api/v1`), so you can point them at a staging server:
-
-```bash
-export GAJO_API_URL="https://staging.example.com/api/v1"
-```
-
 ## License
 
 MIT. See [LICENSE](LICENSE).

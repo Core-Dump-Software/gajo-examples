@@ -2,7 +2,8 @@
 
 Gajo runs a remote [MCP](https://modelcontextprotocol.io) server at `https://gajo.io/mcp` (Streamable HTTP). Connect an
 AI assistant and it can shorten links, find them, and read their stats, on your plan's limits. It's also listed in the
-[official MCP Registry](https://registry.modelcontextprotocol.io) as `io.gajo/url-shortener`.
+[official MCP Registry](https://registry.modelcontextprotocol.io) as `io.gajo/url-shortener` and on
+[Smithery](https://smithery.ai/servers/cds/gajo).
 
 There are two ways to connect:
 

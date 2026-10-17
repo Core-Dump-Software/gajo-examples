@@ -1,10 +1,17 @@
 # Gajo MCP server
 
 Gajo runs a remote [MCP](https://modelcontextprotocol.io) server at `https://gajo.io/mcp` (Streamable HTTP). Connect an
-AI assistant with your Gajo API key and it can shorten links, find them, and read their stats, on your plan's limits.
-It's also listed in the [official MCP Registry](https://registry.modelcontextprotocol.io) as `io.gajo/url-shortener`.
+AI assistant and it can shorten links, find them, and read their stats, on your plan's limits. It's also listed in the
+[official MCP Registry](https://registry.modelcontextprotocol.io) as `io.gajo/url-shortener`.
 
-Free accounts include an API key: [sign up](https://gajo.io/account/signup), then open **API → Keys**.
+There are two ways to connect:
+
+- **Sign in with your Gajo account** (OAuth). Clients that support MCP sign-in, like Claude, open a Gajo sign-in page
+  the first time you use a tool. No key to copy.
+- **Send an API key** as the `x-api-key` header, for clients without sign-in support or for scripts.
+
+Both work on every plan, including Free: [sign up](https://gajo.io/account/signup) (no credit card). Your API key is
+under **API → Keys**, and apps you've signed in to are under **API → Connected Apps**, where you can disconnect them.
 
 ## Tools
 
@@ -17,9 +24,19 @@ Free accounts include an API key: [sign up](https://gajo.io/account/signup), the
 | `deactivate_url` | Turn a link off | All |
 | `get_usage` | Plan and remaining monthly quota | All |
 
-Tool calls share your key's per-minute rate limit with the REST API.
+Tool calls count against your plan's per-minute API rate limit.
+
+## Claude (claude.ai, Desktop, and mobile)
+
+Add a custom connector with the URL `https://gajo.io/mcp`, then click **Connect** and sign in to Gajo.
 
 ## Claude Code
+
+```bash
+claude mcp add --scope user --transport http gajo https://gajo.io/mcp
+```
+
+Then run `/mcp` in a session, choose **gajo**, and **Authenticate** to sign in. To use an API key instead:
 
 ```bash
 claude mcp add --scope user --transport http gajo https://gajo.io/mcp --header "x-api-key: YOUR_API_KEY"
@@ -59,10 +76,16 @@ claude mcp add --scope user --transport http gajo https://gajo.io/mcp --header "
 }
 ```
 
+If your editor supports MCP sign-in, you can leave out `headers` and sign in to Gajo when it asks instead.
+
 ## Other clients
 
-Any MCP client that can send a header works: point it at `https://gajo.io/mcp` and send `x-api-key: YOUR_API_KEY`.
-Clients that only support bearer tokens can send `Authorization: Bearer YOUR_API_KEY` instead.
+Any MCP client works: point it at `https://gajo.io/mcp` and either sign in when it asks or send
+`x-api-key: YOUR_API_KEY`. Clients that only support bearer tokens can send `Authorization: Bearer YOUR_API_KEY`.
+
+Sign-in follows the MCP authorization spec: a tool call without credentials answers `401` with a `WWW-Authenticate`
+header pointing at `https://gajo.io/.well-known/oauth-protected-resource/mcp`. Gajo supports Client ID Metadata
+Documents and Dynamic Client Registration, with PKCE.
 
 The server supports MCP protocol revision 2026-07-28 (stateless, `server/discover`) as well as clients that start
 with `initialize` (2025-03-26 to 2025-11-25). Listing tools doesn't need a key, so you can check the connection first:

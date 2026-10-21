@@ -55,6 +55,7 @@ The short link is `https://gajo.io/{shortCode}`, or `https://gajo.io/c/{shortCod
 | Change where a link points | [update-destination.sh](curl/update-destination.sh) | | | Pro |
 | Deactivate a link | [deactivate.sh](curl/deactivate.sh) | | | All |
 | Reactivate a deactivated link | [reactivate.sh](curl/reactivate.sh) | | | All |
+| Delete a link permanently (erases its destination and clicks) | [delete.sh](curl/delete.sh) | | | All |
 
 [`javascript/gajo.js`](javascript/gajo.js) and [`python/gajo.py`](python/gajo.py) are small, dependency-light clients
 you can copy into your own project.

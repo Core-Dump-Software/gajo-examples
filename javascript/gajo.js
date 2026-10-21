@@ -82,6 +82,11 @@ export class Gajo {
     return this.request('DELETE', `/urls/${encodeURIComponent(code)}`);
   }
 
+  /** Permanently delete a link: its destination and click history are erased. Can't be undone. */
+  async delete(code) {
+    return this.request('DELETE', `/urls/${encodeURIComponent(code)}?permanent=true`);
+  }
+
   /** Turn a deactivated link back on; expired, unsafe-flagged, or unassigned links throw (409). */
   async reactivate(code) {
     return (await this.request('POST', `/urls/${encodeURIComponent(code)}/reactivate`)).data;

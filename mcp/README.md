@@ -23,6 +23,7 @@ under **API → Keys**, and apps you've signed in to are under **API → Connect
 | `get_url_stats` | Click analytics, bots excluded | All |
 | `update_url` | Change a link's destination | Pro |
 | `deactivate_url`, `reactivate_url` | Turn a link off, or back on | All |
+| `delete_url` | Delete a link for good, erasing its destination and clicks | All |
 | `get_usage` | Plan and remaining monthly quota | All |
 
 Tool calls count against your plan's per-minute API rate limit.

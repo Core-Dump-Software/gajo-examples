@@ -82,6 +82,11 @@ export class Gajo {
     return this.request('DELETE', `/urls/${encodeURIComponent(code)}`);
   }
 
+  /** Turn a deactivated link back on; expired, unsafe-flagged, or unassigned links throw (409). */
+  async reactivate(code) {
+    return (await this.request('POST', `/urls/${encodeURIComponent(code)}/reactivate`)).data;
+  }
+
   /**
    * Sends one request. Errors become GajoError with the API's message; a 429 waits for
    * Retry-After and tries once more.

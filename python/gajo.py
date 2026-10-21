@@ -83,6 +83,10 @@ class Gajo:
     def deactivate(self, code: str) -> dict:
         return self._request("DELETE", f"/urls/{code}")
 
+    def reactivate(self, code: str) -> dict:
+        """Turn a deactivated link back on; expired, unsafe-flagged, or unassigned links raise GajoError (409)."""
+        return self._request("POST", f"/urls/{code}/reactivate")["data"]
+
     def _request(self, method: str, path: str, **kwargs: Any) -> dict:
         return self._send(method, path, **kwargs).json()
 

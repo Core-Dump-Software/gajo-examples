@@ -22,6 +22,7 @@ under **API → Keys**, and apps you've signed in to are under **API → Connect
 | `list_urls`, `get_url` | Find your links | All |
 | `get_url_stats` | Click analytics, bots excluded | All |
 | `update_url` | Change a link's destination | Pro |
+| `create_app_link`, `update_app_link` | One link that sends iPhones to the App Store, Android to Google Play, and shows other devices a page with a QR code | Pro |
 | `deactivate_url`, `reactivate_url` | Turn a link off, or back on | All |
 | `delete_url` | Delete a link for good, erasing its destination and clicks | All |
 | `get_usage` | Plan and remaining monthly quota | All |

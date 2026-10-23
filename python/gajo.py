@@ -80,6 +80,13 @@ class Gajo:
         """Pro: point an existing link somewhere else."""
         return self._request("PUT", f"/urls/{code}", json={"originalUrl": url})["data"]
 
+    def create_app_link(self, ios_url: str, android_url: str, otherwise: str, **options: Any) -> dict:
+        """Pro: one link that sends iPhones to the App Store, Android to Google Play, and shows other devices
+        a page with a QR code. otherwise is "mobile_only", "store_links", or "store_badges". Options: appName
+        (looked up from the App Store when omitted) and customCode."""
+        body = {"iosUrl": ios_url, "androidUrl": android_url, "otherwise": otherwise, **options}
+        return self._request("POST", "/app-links", json=body)["data"]
+
     def deactivate(self, code: str) -> dict:
         return self._request("DELETE", f"/urls/{code}")
 

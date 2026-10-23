@@ -53,6 +53,7 @@ The short link is `https://gajo.io/{shortCode}`, or `https://gajo.io/c/{shortCod
 | App deep link with a web fallback | [deep-link.sh](curl/deep-link.sh) | [deep-link.js](javascript/deep-link.js) | [deep_link.py](python/deep_link.py) | Pro |
 | Shorten up to 100 links at once | [batch.sh](curl/batch.sh) | | [batch.py](python/batch.py) | Pro |
 | Change where a link points | [update-destination.sh](curl/update-destination.sh) | | | Pro |
+| App store link: iPhone → App Store, Android → Google Play, a page for everyone else | [app-link.sh](curl/app-link.sh) | | | Pro |
 | Deactivate a link | [deactivate.sh](curl/deactivate.sh) | | | All |
 | Reactivate a deactivated link | [reactivate.sh](curl/reactivate.sh) | | | All |
 | Delete a link permanently (erases its destination and clicks) | [delete.sh](curl/delete.sh) | | | All |

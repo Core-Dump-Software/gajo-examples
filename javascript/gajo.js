@@ -78,6 +78,15 @@ export class Gajo {
     return (await this.request('PUT', `/urls/${encodeURIComponent(code)}`, { originalUrl: url })).data;
   }
 
+  /**
+   * Pro: one link that sends iPhones to the App Store, Android to Google Play, and shows other devices a page
+   * with a QR code. otherwise is 'mobile_only', 'store_links', or 'store_badges'. Options: appName (looked up
+   * from the App Store when omitted) and customCode.
+   */
+  async createAppLink(iosUrl, androidUrl, otherwise, options = {}) {
+    return (await this.request('POST', '/app-links', { iosUrl, androidUrl, otherwise, ...options })).data;
+  }
+
   async deactivate(code) {
     return this.request('DELETE', `/urls/${encodeURIComponent(code)}`);
   }

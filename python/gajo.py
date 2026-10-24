@@ -82,8 +82,9 @@ class Gajo:
 
     def create_app_link(self, ios_url: str, android_url: str, otherwise: str, **options: Any) -> dict:
         """Pro: one link that sends iPhones to the App Store, Android to Google Play, and shows other devices
-        a page with a QR code. otherwise is "mobile_only", "store_links", or "store_badges". Options: appName
-        (looked up from the App Store when omitted) and customCode."""
+        a page with a QR code. otherwise is "mobile_only", "store_links", or "store_badges" (published apps only;
+        TestFlight and Google Play test links use the other two). Options: appName (looked up from the App Store
+        when omitted) and customCode."""
         body = {"iosUrl": ios_url, "androidUrl": android_url, "otherwise": otherwise, **options}
         return self._request("POST", "/app-links", json=body)["data"]
 

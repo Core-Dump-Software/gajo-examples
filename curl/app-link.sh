@@ -4,7 +4,10 @@
 #   mobile_only   "This link must be opened in a mobile browser."
 #   store_links   both store URLs, written out in full
 #   store_badges  the official App Store and Google Play badges under "Click below to download <app name>"
+#                 (only for apps published in both stores)
 # Usage: ./app-link.sh <app-store-url> <play-store-url> <otherwise> [app name]
+# Before release, pass the TestFlight link (https://testflight.apple.com/join/...) and Google Play test link
+# (https://play.google.com/apps/internaltest/... or /apps/testing/...) with store_links or mobile_only.
 # The app name is looked up from the App Store when omitted.
 set -euo pipefail
 : "${GAJO_API_KEY:?Set GAJO_API_KEY to your Gajo API key (free: https://gajo.io/account/signup)}"

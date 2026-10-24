@@ -66,8 +66,9 @@ You need curl (with [jq](https://jqlang.org) for pretty output, optional), Node 
 
 ## AI assistants (MCP)
 
-Gajo runs a remote MCP server at `https://gajo.io/mcp`. Connect Claude Code, Cursor, or VS Code with your API key and
-ask the assistant to shorten, list, or look up links. Setup for each is in [mcp/](mcp/README.md).
+Gajo runs a remote MCP server at `https://gajo.io/mcp`. In Claude, add [Gajo URL Shortener](https://claude.ai/directory/connectors/gajo-url-shortener) from the
+Connectors Directory and sign in. Connect Claude Code, Cursor, or VS Code with your API key and ask the assistant to
+shorten, list, or look up links. Setup for each is in [mcp/](mcp/README.md).
 
 ```bash
 claude mcp add --scope user --transport http gajo https://gajo.io/mcp --header "x-api-key: $GAJO_API_KEY"

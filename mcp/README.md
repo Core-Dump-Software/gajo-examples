@@ -1,8 +1,9 @@
 # Gajo MCP server
 
 Gajo runs a remote [MCP](https://modelcontextprotocol.io) server at `https://gajo.io/mcp` (Streamable HTTP). Connect an
-AI assistant and it can shorten links, find them, and read their stats, on your plan's limits. It's also listed in the
-[official MCP Registry](https://registry.modelcontextprotocol.io) as `io.gajo/url-shortener` and on
+AI assistant and it can shorten links, find them, and read their stats, on your plan's limits. It's listed in
+[Claude's Connectors Directory](https://claude.ai/directory/connectors/gajo-url-shortener) as Gajo URL Shortener, in the
+[official MCP Registry](https://registry.modelcontextprotocol.io) as `io.gajo/url-shortener`, and on
 [Smithery](https://smithery.ai/servers/cds/gajo).
 
 There are two ways to connect:
@@ -31,7 +32,8 @@ Tool calls count against your plan's per-minute API rate limit.
 
 ## Claude (claude.ai, Desktop, and mobile)
 
-Add a custom connector with the URL `https://gajo.io/mcp`, then click **Connect** and sign in to Gajo.
+Open [Gajo URL Shortener](https://claude.ai/directory/connectors/gajo-url-shortener) in Claude's Connectors Directory, click **Connect**, and sign in to Gajo. No API key
+needed. (A custom connector with the URL `https://gajo.io/mcp` works the same way.)
 
 ## Claude Code
 

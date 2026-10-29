@@ -81,7 +81,7 @@ claude mcp add --scope user --transport http gajo https://gajo.io/mcp --header "
   a `429` includes `Retry-After` (seconds). The clients here wait and retry once.
 - **Link lifetime:** up to 60 days on Free, 120 on Basic, unlimited on Pro.
 - Errors share one shape, `{"success": false, "message": "...", "data": null}`, with the usual status codes:
-  `400` invalid input, `401` missing or invalid key, `403` feature not on your plan, `404` unknown link,
+  `400` invalid input, `401` missing or invalid key, `403` feature not on your plan or account not active, `404` unknown link,
   `409` custom code taken, `429` rate limited.
 
 Plans and prices: [gajo.io/pricing](https://gajo.io/pricing).
